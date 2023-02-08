@@ -1,5 +1,6 @@
 # AirBnB_clone
 
-##Authors
+## Authors
 Michael Oni
+
 Oliver Njeru
