@@ -1,26 +1,16 @@
 #!/usr/bin/python3
-
-
-"""
-    Module that defines Review class. It defines all
-    common attributes/methods for state. Inherits from
-    BaseModel
-"""
-
+""" Review module for the HBNB project """
 from models.base_model import BaseModel
 
 
 class Review(BaseModel):
-    """
-        Review: Review class
-        Attributes:
-                    place_id (str): instance of place id
-                    user_id (str): instance of user id
-                    text (str): instance text
-        Raises:
-    """
+    """ Review class to store review information
 
+    Attributes:
+        place_id (str): The Place id.
+        user_id (str): The User id.
+        text (str): The review message.
+    """
     place_id = ""
     user_id = ""
     text = ""
-

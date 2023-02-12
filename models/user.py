@@ -1,28 +1,18 @@
 #!/usr/bin/python3
-
-
-"""
-    Module that defines User class that defines
-    all common attributes/methods for user
-"""
-
-
+"""This module defines the User Class module for the AirBnB clone project"""
 from models.base_model import BaseModel
 
 
 class User(BaseModel):
+    """Representation of a User
+
+    Attributes:
+        email (str): The email of the user.
+        password (str): The user password.
+        first_name (str): The user first name.
+        last_name (str): The user last name.
     """
-        User: User class
-        Attributes:
-                    email (str): instance email
-                    password (str): instance password
-                    first_name (str): instance first_name
-                    last_name (str): instance last_name
-         Raises:
-     """
-
-    email = ""
-    password = ""
-    first_name = ""
-    last_name = ""
-
+    email = ''
+    password = ''
+    first_name = ''
+    last_name = ''

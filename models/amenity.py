@@ -1,22 +1,12 @@
 #!/usr/bin/python3
-
-
-"""
-    Module that defines Amenity class. It defines all
-    common attributes/methods for state. Inherits from
-    BaseModel
-"""
-
+""" Amenity Class Module for the AirBnB clone project """
 from models.base_model import BaseModel
 
 
 class Amenity(BaseModel):
-    """
-        Amenity: Amenity class
-        Attributes:
-                    name (str): instance name
-        Raises:
-    """
+    """Represent an amenity
 
+    Attributes:
+        name (str) : The name of the amenity
+    """
     name = ""
-

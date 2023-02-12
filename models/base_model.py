@@ -1,76 +1,56 @@
 #!/usr/bin/python3
-
-
-"""
-    Module that defines BaseModel class
-    which defomes all common attributes/methods for the instances
+"""This module defines a base class that defines
+all common attributes/methods for other classes in
+our AirBnB clone
 """
 
-
-from uuid import uuid4
+from models import storage
+import uuid
 from datetime import datetime
-import models
 
 
 class BaseModel:
-    """
-        BaseModel: BaseModel class
-        Attributes:
-                    id (uuid4): instance id
-                    updated_at (str/datetime): date/time of instance update
-                    save(): updates the date/time of instance
-                    to_dict(): create a dict of all the instance attributes
-        Args:
-            id: instance id
-            created_at: instance creation date/time
-            updated_at: instance updates date/time
-        Raises:
-    """
+    """A base class for all common attributes/methods
+    of our AirBnB clone project"""
 
     def __init__(self, *args, **kwargs):
-        """ An initialize a new BaseModel
-            Args:
-                *args (any): Unused.
-                **kwargs (dict): Key/value pairs of attributes.
+        """New BaseModel initialization
+
+        Args:
+            *args (any) : Unused.
+            **kwargs (dict): Key and value pairs of attributes
         """
-        self.id = str(uuid4())
-        self.updated_at = datetime.now()
-        self.created_at = datetime.now()
-        # if kwargs is given then update the attributes
-        if kwargs:
-            # temp variable to hold date/time i.e to comply with pycodestyle
-            temp1 = kwargs.get("created_at")
-            temp2 = kwargs.get("updated_at")
-            self.id = kwargs.get("id")
-            # Iso_format_string - '%Y-%m-%dT%H:%M:%S.%f'
-            self.created_at = datetime.strptime(temp1, '%Y-%m-%dT%H:%M:%S.%f')
-            self.updated_at = datetime.strptime(temp2, '%Y-%m-%dT%H:%M:%S.%f')
-            # Only to be added if name/my_number is specified
-            if kwargs.__contains__("name"):
-                self.name = kwargs.get("name")
-            if kwargs.__contains__("my_number"):
-                self.my_number = kwargs.get("my_number")
+        dtformat = '%Y-%m-%dT%H:%M:%S.%f'
+        if not kwargs:
+            self.id = str(uuid.uuid4())
+            self.created_at = datetime.now()
+            self.updated_at = datetime.now()
+            storage.new(self)
         else:
-            models.storage.new(self)
-
-    def save(self):
-        """Update updated_at with the current datetime."""
-        self.updated_at = datetime.now()
-        models.storage.save()
-
-    def to_dict(self):
-        """Return the dictionary of the BaseModel instance.
-        Includes the key/value pair __class__ representing
-        the class name of the object.
-        """
-        toDict = self.__dict__.copy()
-        toDict["created_at"] = self.created_at.isoformat()
-        toDict["updated_at"] = self.updated_at.isoformat()
-        toDict["__class__"] = self.__class__.__name__
-        return toDict
+            cdatefld = kwargs['created_at']
+            cupfld = kwargs['updated_at']
+            kwargs['updated_at'] = datetime.strptime(cupfld, dtformat)
+            kwargs['created_at'] = datetime.strptime(cdatefld, dtformat)
+            del kwargs['__class__']
+            self.__dict__.update(kwargs)
 
     def __str__(self):
-        """Return the print/str representation of the BaseModel instance."""
-        return "[{}] ({}) {}"\
-            .format(self.__class__.__name__, self.id, self.__dict__)
+        """Returns the string representation of the BaseModel instance"""
+        cls_name = self.__class__.__name__
+        return '[{}] ({}) {}'.format(cls_name, self.id, self.__dict__)
 
+    def save(self):
+        """Updates the public instance attribute
+        updated_at with the current datetime"""
+        self.updated_at = datetime.now()
+        storage.save()
+
+    def to_dict(self):
+        """Returns the dictionary containing all
+        keys/values of __dict__ of the instance"""
+        dct = {}
+        dct.update(self.__dict__)
+        dct.update({'__class__': self.__class__.__name__})
+        dct['created_at'] = self.created_at.isoformat()
+        dct['updated_at'] = self.updated_at.isoformat()
+        return dct

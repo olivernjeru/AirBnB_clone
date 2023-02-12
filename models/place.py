@@ -1,42 +1,32 @@
 #!/usr/bin/python3
-
-
-"""
-    Module that defines Place class. It defines all
-    common attributes/methods for state. Inherits from
-    BaseModel
-"""
-
+""" Place Class Module for the AirBnB clone project """
 from models.base_model import BaseModel
 
 
 class Place(BaseModel):
-    """
-        Place: Place class
-        Attributes:
-                    name (str): instance name
-                    city_id (str): instance city id
-                    user_id: (str): instance state id
-                    description (str): instance description
-                    number_rooms (int): instance number of rooms
-                    max_guest (int): instance maximum guest
-                    number_bathrooms (int): instance number of bathrooms
-                    price_by_night (int): instance of price by ight
-                    latitude (float): instance of latitude
-                    longitude (float): instance of longitude
-                    amenity_ids (list): instance of lists of amenities
-        Raises:
-    """
+    """ Representation of a place to stay
 
-    name = ""
+    Attributes:
+        city_id (str): The City id.
+        user_id (str): The User id.
+        name (str): The name of the place.
+        description (str): The description of the place.
+        number_rooms (int): The number of rooms.
+        number_bathrooms (int): The number of bathrooms.
+        max_guest (int): The maximum number of guests.
+        price_by_night (int): The price by night.
+        latitude (float): The latitude of the place.
+        longitude (float): The longitude of the place.
+        amenity_ids (list): A list of Amenity ids.
+    """
     city_id = ""
     user_id = ""
+    name = ""
     description = ""
     number_rooms = 0
-    max_guest = 0
     number_bathrooms = 0
+    max_guest = 0
     price_by_night = 0
     latitude = 0.0
     longitude = 0.0
     amenity_ids = []
-
