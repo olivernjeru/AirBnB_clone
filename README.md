@@ -1,6 +1,6 @@
 # AirBnB_clone
 
-AirBnB clone is an ALX project to build an application similar tothe popular Airbnb. This application will be completed in milestones (steps) and each step will link to a concept:
+AirBnB clone is an ALX project to build an application similar to the popular Airbnb. This application will be completed in milestones (steps) and each step will link to a concept:
 
 ## Files and Directories
 - [models](./models):
@@ -45,7 +45,7 @@ The first piece is to manipulate a powerful storage system. This storage engine 
 This abstraction will also allow you to change the type of storage easily without updating all of your codebase.
 
 The console will be a tool to validate this storage engine
-![server-side(storage engine)]()
+<!-- ![server-side(storage engine)]() -->
 
 ## References
 1. [Python strftime cheatsheet](https://strftime.org/)
