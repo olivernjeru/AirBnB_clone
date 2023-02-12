@@ -1,22 +1,12 @@
 #!/usr/bin/python3
-
-
-"""
-    Module that defines State class. It defines all
-    common attributes/methods for state. Inherits from
-    BaseModel
-"""
-
+""" State Class Module for the AirBnB clone project """
 from models.base_model import BaseModel
 
 
 class State(BaseModel):
-    """
-        State: State class
-        Attributes:
-                    name (str): instance name
-        Raises:
-    """
+    """ State class
 
+    Attributes:
+        name (str): The name of the state
+    """
     name = ""
-
