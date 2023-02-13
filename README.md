@@ -51,6 +51,6 @@ EOF  help  quit
 ```
 
 ## Authors
-* **Ebenezer Ogidiolu** - *Software Engineer* - [@dsoft02](https://github.com/dsoft02)
+* **Michael Oni** - *Software Engineer* - [@TheOnis](https://github.com/TheOnis)
 
-* **Eric Taruwinga** - *Software Engineer* - [@erc-net](https://github.com/erc-net)
+* **Oliver Njeru** - *Software Engineer* - [@olivernjerus](https://github.com/olivernjeru)
